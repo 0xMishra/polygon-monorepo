@@ -5,12 +5,14 @@ import "forge-std/Test.sol";
 import "../src/Ghost.sol";
 contract GhostTest is Test {
     Ghost ghost;
+    address bob = address(0x1);
+    address mary = address(0x2);
     function setUp() public {
         ghost = new Ghost();
     }
 
     function testBalance() public {
-        uint value = ghost.balanceOf(msg.sender);
+        uint value = ghost.balanceOf();
         assertEq(value, 120000);
         emit log_named_uint("The value is", value);
     }
